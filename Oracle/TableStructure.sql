@@ -1,6 +1,9 @@
 ﻿-- 表结构相关的SQL
 -- About the Structure of Table
 
+----注：以下的[YOUR_TAB_NAME]需要大写
+---- Notice：The table name [YOUR_TAB_NAME] should be Upper Case
+
 -- 表信息
 -- Table Info
 select * from user_tables t, user_tab_comments c
