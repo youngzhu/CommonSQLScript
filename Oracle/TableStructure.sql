@@ -25,6 +25,10 @@ where uc.constraint_type='P'
 and ucc.table_name = '[YOUR_TAB_NAME]'
 and ucc.constraint_name = uc.constraint_name
 
+-- 其他约束，可参考同目录下 [ConstraintType.png]
+-- For more information about Constraint Type, please refer to the image ConstraintType.png,
+---- which in the same path
+
 -- 索引
 -- Index
 select * from user_ind_columns c, user_indexes i
