@@ -24,3 +24,10 @@ select * from
 (select [ADD_DATE] from [TBL_NAME]
 order by [ADD_DATE] desc)
 where rownum < N
+
+---- 下面的语句是不行的
+---- 因为Oracle先根据[WHERE]查询记录，然后再排序
+select [ADD_DATE] from [TBL_NAME]
+where rownum < N
+order by [ADD_DATE] desc
+
