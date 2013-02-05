@@ -1,7 +1,3 @@
-﻿-- Function
--- Date
-
-
 -- To Char
 --Format大小写无关。
 --hh24-24小时制
