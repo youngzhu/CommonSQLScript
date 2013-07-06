@@ -1,29 +1,29 @@
--- ≤È—ØÀ¯◊°µƒ∂‘œÛ
+Ôªø-- Êü•ËØ¢ÈîÅ‰ΩèÁöÑÂØπË±°
 -- 1
-SELECT l.session_id sid, s.serial#, l.locked_mode,l.oracle_username,
-l.os_user_name,s.machine, s.terminal, o.object_name, s.logon_time
-FROM v$locked_object l, all_objects o, v$session s
-WHERE l.object_id = o.object_id
-AND l.session_id = s.sid
-ORDER BY sid, s.serial# ;
+SELECT L.SESSION_ID SID, S.SERIAL#, L.LOCKED_MODE,L.ORACLE_USERNAME,
+L.OS_USER_NAME,S.MACHINE, S.TERMINAL, O.OBJECT_NAME, S.LOGON_TIME
+FROM V$LOCKED_OBJECT L, ALL_OBJECTS O, V$SESSION S
+WHERE L.OBJECT_ID = O.OBJECT_ID
+AND L.SESSION_ID = S.SID
+ORDER BY SID, S.SERIAL# ;
 
 -- 2
-SELECT l.session_id sid, s.serial#, l.locked_mode, l.oracle_username, s.user#,
-l.os_user_name,s.machine, s.terminal,a.sql_text, a.action
-FROM v$sqlarea a,v$session s, v$locked_object l
-WHERE l.session_id = s.sid
-AND s.prev_sql_addr = a.address
-ORDER BY sid, s.serial#;
+SELECT L.SESSION_ID SID, S.SERIAL#, L.LOCKED_MODE, L.ORACLE_USERNAME, S.USER#,
+L.OS_USER_NAME,S.MACHINE, S.TERMINAL,A.SQL_TEXT, A.ACTION
+FROM V$SQLAREA A,V$SESSION S, V$LOCKED_OBJECT L
+WHERE L.SESSION_ID = S.SID
+AND S.PREV_SQL_ADDR = A.ADDRESS
+ORDER BY SID, S.SERIAL#;
 
 -- 3
-SELECT s.sid, s.serial#, s.username, s.schemaname, s.osuser, s.process, s.machine,
-s.terminal, s.logon_time, l.type
-FROM v$session s, v$lock l
-WHERE s.sid = l.sid
-AND s.username IS NOT NULL
-ORDER BY sid;
+SELECT S.SID, S.SERIAL#, S.USERNAME, S.SCHEMANAME, S.OSUSER, S.PROCESS, S.MACHINE,
+S.TERMINAL, S.LOGON_TIME, L.TYPE
+FROM V$SESSION S, V$LOCK L
+WHERE S.SID = L.SID
+AND S.USERNAME IS NOT NULL
+ORDER BY SID;
 
--- killÀ¯◊°µƒΩ¯≥Ã
--- alter system kill session'sid,serial#';
-alter system kill session'34,74';
+-- KILLÈîÅ‰ΩèÁöÑËøõÁ®ã
+-- ALTER SYSTEM KILL SESSION'SID,SERIAL#';
+ALTER SYSTEM KILL SESSION'34,74';
 
